@@ -35,3 +35,15 @@ Acccess Type:Public
 @app.get("/contact")
 def contact_page():
     return {"msg":"Contact Page"} 
+
+
+'''
+Usage: Login Page
+Rest API URL: http://127.0.0.1:8000/login
+Method Type:GET
+Required Fields: None 
+Acccess Type:Public
+'''
+@app.get("/login")
+def login():
+    return {"msg":"Login Page"} 
