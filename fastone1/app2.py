@@ -6,9 +6,16 @@ students = {
     1: {"name": "Hari", "age": 21},
     2: {"name": "Ravi", "age": 22}
 }
+
 @app.get("/students")
 def get_students():
     return students
+
+
+@app.get("/students/{student_id}")
+def get_student(student_id: int):
+    return students[student_id]
+
 
 @app.post("/students/{student_id}")
 def add_student(student_id: int, name: str, age: int):
@@ -16,10 +23,8 @@ def add_student(student_id: int, name: str, age: int):
         "name": name,
         "age": age
     }
+    return {"message": "Student added"}
 
-    return {
-        "message": "Student added successfully"
-    }
 
 @app.put("/students/{student_id}")
 def update_student(student_id: int, name: str, age: int):
@@ -27,14 +32,10 @@ def update_student(student_id: int, name: str, age: int):
         "name": name,
         "age": age
     }
+    return {"message": "Student updated"}
 
-    return {
-        "message": "Student updated successfully"
-    }
+
 @app.delete("/students/{student_id}")
 def delete_student(student_id: int):
     del students[student_id]
-
-    return {
-        "message": "Student deleted successfully"
-    }
+    return {"message": "Student deleted"}
