@@ -21,3 +21,20 @@ def add_student(student_id: int, name: str, age: int):
         "message": "Student added successfully"
     }
 
+@app.put("/students/{student_id}")
+def update_student(student_id: int, name: str, age: int):
+    students[student_id] = {
+        "name": name,
+        "age": age
+    }
+
+    return {
+        "message": "Student updated successfully"
+    }
+@app.delete("/students/{student_id}")
+def delete_student(student_id: int):
+    del students[student_id]
+
+    return {
+        "message": "Student deleted successfully"
+    }
