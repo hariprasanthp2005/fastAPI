@@ -7,17 +7,17 @@ students = {
     2: {"name": "Ravi", "age": 22}
 }
 
-@app.get("/students")
+@app.get("/")
 def get_students():
     return students
 
 
-@app.get("/students/{student_id}")
+@app.get("/students")
 def get_student(student_id: int):
     return students[student_id]
 
 
-@app.post("/students/{student_id}")
+@app.post("/students")
 def add_student(student_id: int, name: str, age: int):
     students[student_id] = {
         "name": name,
@@ -26,7 +26,7 @@ def add_student(student_id: int, name: str, age: int):
     return {"message": "Student added"}
 
 
-@app.put("/students/{student_id}")
+@app.put("/students")
 def update_student(student_id: int, name: str, age: int):
     students[student_id] = {
         "name": name,
