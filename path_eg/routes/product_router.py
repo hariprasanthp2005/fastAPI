@@ -30,12 +30,13 @@ Method Type: GET
 Required Fields:None
 Access Type:Public
 '''
+'''
 
 @router.get("/{prod_id}")
 def get_product_details(prod_id:int):
     product=tuple(filter(lambda p:p['pid']==prod_id,products))
     return product
-
+'''
 
 """ @router.get("/{category}/{pid}")
 def get_product_details(category:str,pid:int):
@@ -43,10 +44,9 @@ def get_product_details(category:str,pid:int):
     print(pid)
     return {} """
 
-@router.get("/products/{product_id}")
+@router.get("/{product_id}")
 def get_product(product_id: int):
     for product in products:
-        if product["id"] == product_id:
+        if product["pid"] == product_id:
             return product
 
-    return {"message": "Product not found"}
