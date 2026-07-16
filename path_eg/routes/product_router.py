@@ -1,4 +1,5 @@
-from fastapi import APIRouter
+from fastapi import APIRouter 
+from fastapi import HTTPException
 router=APIRouter(prefix="/products")
 
 products=[
@@ -45,8 +46,13 @@ def get_product_details(category:str,pid:int):
     return {} """
 
 @router.get("/{product_id}")
-def get_product(product_id: int):
+def get_product_id(product_id=int):
     for product in products:
-        if product["pid"] == product_id:
+        if product["pid"]== product_id:
             return product
+        
+raise HTTPException(
+    status_code=404,
+    detail="Product not found")        
+
 
