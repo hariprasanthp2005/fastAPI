@@ -23,7 +23,6 @@ def get_products():
     return products 
 
 
-
 '''
 Usage:fetch product by id
 RestAPI URL: http://127.0.0.1:8000/products/stationary/101
@@ -31,13 +30,13 @@ Method Type: GET
 Required Fields:None
 Access Type:Public
 '''
-'''
+
 
 @router.get("/{prod_id}")
 def get_product_details(prod_id:int):
     product=tuple(filter(lambda p:p['pid']==prod_id,products))
     return product
-'''
+
 
 """ @router.get("/{category}/{pid}")
 def get_product_details(category:str,pid:int):
